@@ -1,0 +1,8 @@
+<div class="side-scroll">
+  <h3>Recent Articles</h3>
+  <ul>
+    <li *ngFor="let article of articles">
+      <a [routerLink]="['/blog', article.id]">{{ article.title }}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,32 @@
+.side-scroll {
+  overflow-y: auto;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.side-scroll h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.side-scroll ul {
+  list-style-type: none;
+}
+
+.side-scroll li {
+  margin-bottom: 0.75rem;
+}
+
+.side-scroll a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.side-scroll a:hover {
+  text-decoration: underline;
+}
+
