@@ -20,6 +20,6 @@ export class FeaturedArticleComponent implements OnInit {
   constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.featuredArticle = this.blogService.getBlogById(1); // Assuming blog ID 1 is the featured article
+    this.featuredArticle = this.blogService.getBlogById(1);
   }
 }
