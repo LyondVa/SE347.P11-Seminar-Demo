@@ -1,7 +1,7 @@
 <div class="side-scroll">
   <h3>Recent Articles</h3>
   <ul>
-    <li *ngFor="let blog of blogs">
+    <li *ngFor="let blog of recentBlogs">
       <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
     </li>
   </ul>

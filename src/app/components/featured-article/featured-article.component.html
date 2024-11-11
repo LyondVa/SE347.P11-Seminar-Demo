@@ -1,5 +1,5 @@
-<section class="featured-article" *ngIf="featuredBlog">
+<div *ngIf="featuredBlog" class="featured-article">
   <h2>{{ featuredBlog.title }}</h2>
-  <p>{{ featuredBlog.content | slice:0:100 }}...</p>
-  <a [routerLink]="['/blog', featuredBlog.id]">Read more...</a>
-</section>
+  <p>{{ featuredBlog.content | slice: 0:200 }}...</p>
+  <a [routerLink]="['/blog', featuredBlog.id]">Read More</a>
+</div>

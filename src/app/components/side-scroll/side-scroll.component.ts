@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../services/blog.service';
+import {BlogService} from '../../services/blog.service';
 import {RouterLink} from '@angular/router';
 import {NgForOf} from '@angular/common';
+
+interface Blog {
+  id: number;
+  title: string;
+  content: string;
+}
 
 @Component({
   selector: 'app-side-scroll',
@@ -14,13 +20,17 @@ import {NgForOf} from '@angular/common';
   styleUrls: ['./side-scroll.component.css']
 })
 export class SideScrollComponent implements OnInit {
-  blogs: any[] = [];
+  recentBlogs: Blog[] = [];
 
   constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.blogService.getAllBlogs().subscribe((blogs) => {
-      this.blogs = blogs;
+    this.fetchRecentBlogs();
+  }
+
+  fetchRecentBlogs(): void {
+    this.blogService.getBlogs().subscribe((blogs) => {
+      this.recentBlogs = blogs.slice(-5); // Get the last 5 blogs for recent articles
     });
   }
 }

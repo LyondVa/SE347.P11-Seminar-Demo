@@ -1,57 +1,78 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {BlogService} from '../../services/blog.service';
-import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
-import {CommentSectionComponent} from '../../components/comment-section/comment-section.component';
+import {FormsModule} from '@angular/forms';
+
+interface Blog {
+  id: number;
+  title: string;
+  content: string;
+}
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
+  standalone: true,
   imports: [
-    FormsModule,
     NgIf,
-    CommentSectionComponent
+    FormsModule
   ],
-  standalone: true
+  styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  blog: any;
-  editableBlog: any;
+  blog: Blog | null = null;
   isEditing: boolean = false;
+  editedTitle: string = '';
+  editedContent: string = '';
 
   constructor(
+    private blogService: BlogService,
     private route: ActivatedRoute,
-    private blogService: BlogService // Inject the BlogService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const id = +params['id'];
-      this.blogService.getBlogById(id).subscribe((blog) => {
-        this.blog = blog;
-        this.editableBlog = { ...blog }; // Create a copy for editing
-      });
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    this.fetchBlog(id);
+  }
+
+  fetchBlog(id: number): void {
+    this.blogService.getBlog(id).subscribe((data) => {
+      this.blog = data;
+      this.editedTitle = data.title;
+      this.editedContent = data.content;
     });
   }
 
-  // Enable editing mode
-  editBlog(): void {
+  enableEditing(): void {
     this.isEditing = true;
-    this.editableBlog = { ...this.blog }; // Fresh copy for editing
   }
 
-  // Save changes to the blog
   saveChanges(): void {
-    this.blogService.updateBlog(this.editableBlog).subscribe((updatedBlog) => {
-      this.blog = updatedBlog; // Update the displayed content with saved data
-      this.isEditing = false;
-    });
+    if (this.blog) {
+      const updatedBlog = { title: this.editedTitle, content: this.editedContent };
+      this.blogService.updateBlog(this.blog.id, updatedBlog).subscribe(() => {
+        this.blog!.title = this.editedTitle;
+        this.blog!.content = this.editedContent;
+        this.isEditing = false;
+      });
+    }
   }
 
-  // Cancel editing mode
-  cancelEdit(): void {
+  cancelEditing(): void {
     this.isEditing = false;
+    if (this.blog) {
+      this.editedTitle = this.blog.title;
+      this.editedContent = this.blog.content;
+    }
+  }
+
+  deleteBlog(): void {
+    if (this.blog) {
+      this.blogService.deleteBlog(this.blog.id).subscribe(() => {
+        this.router.navigate(['/']); // Redirect to home page after deletion
+      });
+    }
   }
 }

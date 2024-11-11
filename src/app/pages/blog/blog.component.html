@@ -1,23 +1,42 @@
-<div class="blog-container">
-  <ng-container *ngIf="isEditing; else viewMode">
-    <!-- Editing Mode -->
-    <div class="edit-mode">
-      <input [(ngModel)]="editableBlog.title" placeholder="Edit Title" class="edit-title" />
-      <textarea [(ngModel)]="editableBlog.content" placeholder="Edit Content" class="edit-content"></textarea>
-      <div class="button-group">
-        <button (click)="saveChanges()" class="save-button">Save</button>
-        <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
-      </div>
-    </div>
-  </ng-container>
+<div *ngIf="blog" class="blog-content">
+  <h2>{{ blog.title }}</h2>
+  <p>{{ blog.content }}</p>
 
-  <!-- Viewing Mode -->
-  <ng-template #viewMode>
-    <section class="blog-content">
-      <h2>{{ blog.title }}</h2>
-      <button (click)="editBlog()">Edit</button>
-      <p>{{ blog.content }}</p>
-      <app-comment-section></app-comment-section>
-    </section>
-  </ng-template>
+  <button (click)="enableEditing()" *ngIf="!isEditing">Edit</button>
+  <button (click)="deleteBlog()" *ngIf="!isEditing">Delete</button>
+
+  <div *ngIf="isEditing" class="edit-section">
+    <input [(ngModel)]="editedTitle" placeholder="Edit title" />
+    <textarea [(ngModel)]="editedContent" placeholder="Edit content"></textarea>
+    <button (click)="saveChanges()">Save</button>
+    <button (click)="cancelEditing()">Cancel</button>
+  </div>
 </div>
+
+
+
+
+
+<!--<div class="blog-container">-->
+<!--  <ng-container *ngIf="isEditing; else viewMode">-->
+<!--    &lt;!&ndash; Editing Mode &ndash;&gt;-->
+<!--    <div class="edit-mode">-->
+<!--      <input [(ngModel)]="editableBlog.title" placeholder="Edit Title" class="edit-title" />-->
+<!--      <textarea [(ngModel)]="editableBlog.content" placeholder="Edit Content" class="edit-content"></textarea>-->
+<!--      <div class="button-group">-->
+<!--        <button (click)="saveChanges()" class="save-button">Save</button>-->
+<!--        <button (click)="cancelEdit()" class="cancel-button">Cancel</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </ng-container>-->
+
+<!--  &lt;!&ndash; Viewing Mode &ndash;&gt;-->
+<!--  <ng-template #viewMode>-->
+<!--    <section class="blog-content">-->
+<!--      <h2>{{ blog.title }}</h2>-->
+<!--      <button (click)="editBlog()">Edit</button>-->
+<!--      <p>{{ blog.content }}</p>-->
+<!--      <app-comment-section></app-comment-section>-->
+<!--    </section>-->
+<!--  </ng-template>-->
+<!--</div>-->
