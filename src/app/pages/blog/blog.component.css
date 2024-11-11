@@ -23,7 +23,13 @@
   line-height: 1.8;
   color: #555;
 }
-
+.blog-image {
+  width: 740px;
+  max-height: 400px;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
 /* Edit mode styling */
 .edit-mode {
   background-color: #ffffff;
@@ -44,7 +50,15 @@
   border-radius: 5px;
   outline: none;
 }
-
+.edit-image-url {
+  font-size: 1.1rem;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 1rem;
+}
 /* Textarea for the content */
 .edit-content {
   font-size: 1.1rem;
@@ -69,6 +83,11 @@ button {
   transition: background-color 0.3s ease;
 }
 
+.button-group{
+  display: flex;
+  justify-content: space-between;
+}
+
 button.edit-button {
   background-color: #007bff; /* Blue for Edit */
   color: #ffffff;
@@ -77,10 +96,19 @@ button.edit-button {
 button.save-button {
   background-color: #4CAF50; /* Green for Save */
   color: #ffffff;
+  margin-right: 20px;
 }
 
 button.cancel-button {
-  background-color: #f44336; /* Red for Cancel */
+  background-color: #808080; /* Red for Cancel */
   color: #ffffff;
 }
 
+.delete-button {
+  background-color: #f44336;
+  color: #ffffff;
+}
+
+.delete-button:hover {
+  background-color: #ff1a1a;
+}

@@ -21,12 +21,18 @@
     "id": 4,
     "title": "Building Reactive Forms in Angular",
     "content": "Angular offers two types of forms: Template-driven and Reactive forms. Reactive forms are more powerful and provide more control over the form’s behavior, especially in large applications. Reactive forms use observables from RxJS, allowing for advanced validation, asynchronous data handling, and dynamic form control creation.\nIn this article, we’ll cover the basics of setting up reactive forms, adding form controls and validators, and handling form submission. We’ll also go over advanced techniques like conditional validation and custom validators to help you create robust, reactive forms in Angular.",
-    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR61f6HfYXNFqrPbZGwUPQt73RTaWy0G1knqw&s"
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*zPcwxdk_LEyjHQo0.png"
   },
   {
     "id": 5,
     "title": "Angular Routing Guide",
     "content": "Angular’s RouterModule is a powerful feature that allows you to create a single-page application (SPA) with client-side routing. With Angular routing, users can navigate between different views or components without refreshing the entire page, improving the user experience.\nThis blog post covers the essentials of setting up routing in an Angular application, defining routes, using router outlets, and configuring route guards for authentication. We’ll also explore lazy loading to improve performance and how to manage route parameters and query strings to create dynamic, data-driven pages.",
     "imageUrl": "https://miro.medium.com/v2/resize:fit:1000/0*tjHPRoTbmmVDrSW3.jpg"
+  },
+  {
+    "title": "hello",
+    "imageUrl": "https://tech.cybozu.vn/static/e905e0b5499edda5240a1ef5e1a0da90/c1f05/61b833d53613d17360092a7e_unit-testing.png",
+    "content": "This is a test",
+    "id": 6
   }
 ]

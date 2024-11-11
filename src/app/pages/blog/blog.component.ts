@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -23,7 +23,8 @@ export class BlogComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService // Inject the BlogService
+    private blogService: BlogService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,5 +54,13 @@ export class BlogComponent implements OnInit {
   // Cancel editing mode
   cancelEdit(): void {
     this.isEditing = false;
+  }
+  deleteBlog(): void {
+    if (confirm('Are you sure you want to delete this blog?')) {
+      const id = this.route.snapshot.paramMap.get('id');
+      this.blogService.deleteBlog(id).subscribe(() => {
+        this.router.navigate(['/']);
+      });
+    }
   }
 }

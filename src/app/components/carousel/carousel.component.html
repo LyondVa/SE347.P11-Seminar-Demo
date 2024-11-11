@@ -1,5 +1,5 @@
-<div class="carousel">
-  <a *ngFor="let article of articles" [routerLink]="['/blog', article.id]" class="carousel-item">
+<div class="grid-container">
+  <a *ngFor="let article of articles" [routerLink]="['/blog', article.id]" class="grid-item">
     <img [src]="article.imageUrl" [alt]="article.title" />
     <p>{{ article.title }}</p>
   </a>

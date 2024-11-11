@@ -26,7 +26,7 @@ export class BlogService {
   }
 
   // Remove a blog by ID
-  removeBlog(id: number): Observable<any> {
+  deleteBlog(id: string | null): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/${id}`);
   }
 
