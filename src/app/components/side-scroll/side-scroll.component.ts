@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import {RouterLink} from '@angular/router';
-import {NgForOf} from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-side-scroll',

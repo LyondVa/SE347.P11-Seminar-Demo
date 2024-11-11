@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {BlogService} from '../../services/blog.service';
-import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
-import {CommentSectionComponent} from '../../components/comment-section/comment-section.component';
+import { BlogService } from '../../services/blog.service';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { CommentSectionComponent } from '../../components/comment-section/comment-section.component';
 
 @Component({
   selector: 'app-blog',

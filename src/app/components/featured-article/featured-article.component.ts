@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import {RouterLink} from '@angular/router';
-import {NgIf, SlicePipe} from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { NgIf, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-featured-article',
@@ -20,8 +20,8 @@ export class FeaturedArticleComponent implements OnInit {
   constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.blogService.getFeaturedBlog().subscribe((blog) => {
-      this.featuredBlog = blog;
+    this.blogService.getAllBlogs().subscribe((blogs) => {
+      this.featuredBlog = blogs.length ? blogs[0] : null; // Assuming the first blog is the featured one
     });
   }
 }

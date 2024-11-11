@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, RouterLink} from '@angular/router';
-import {NgForOf, NgIf, SlicePipe} from '@angular/common';
-import {BlogService} from '../../services/blog.service';
-import {TruncatePipe} from '../../pipes/truncate.pipe';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgForOf, NgIf, SlicePipe } from '@angular/common';
+import { BlogService } from '../../services/blog.service';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 @Component({
   selector: 'app-search',
@@ -20,8 +20,6 @@ import {TruncatePipe} from '../../pipes/truncate.pipe';
 export class SearchComponent implements OnInit {
   query: string = '';
   filteredBlogs: any[] = [];
-
-  // Dummy blogs data; in a real application, you could load this from a service.
   blogs: any[] = [];
 
   constructor(private route: ActivatedRoute, private blogService: BlogService) {}
@@ -29,6 +27,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.blogService.getAllBlogs().subscribe((blogs) => {
       this.blogs = blogs;
+      this.searchBlogs();
     });
 
     this.route.queryParams.subscribe(params => {
