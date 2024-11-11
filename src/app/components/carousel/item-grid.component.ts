@@ -10,10 +10,10 @@ import { BlogService } from '../../services/blog.service';
     NgForOf,
     RouterLink
   ],
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  templateUrl: './item-grid.component.html',
+  styleUrls: ['./item-grid.component.css']
 })
-export class CarouselComponent implements OnInit {
+export class ItemGridComponent implements OnInit {
   articles: any[] = [];
 
   constructor(private blogService: BlogService) {}
@@ -23,7 +23,7 @@ export class CarouselComponent implements OnInit {
       this.articles = blogs.map(blog => ({
         id: blog.id,
         title: blog.title,
-        imageUrl: blog.imageUrl || 'default-image-url.jpg' // Replace with actual image URL if available
+        imageUrl: blog.imageUrl || 'default-image-url.jpg'
       }));
     });
   }

@@ -30,7 +30,7 @@ export class AddBlogComponent {
   onSubmit(): void {
     if (this.blogForm.valid) {
       this.blogService.addBlog(this.blogForm.value).subscribe(() => {
-        this.router.navigate(['/']); // Navigate to home or blog list after adding
+        this.router.navigate(['/']);
       });
     }
   }

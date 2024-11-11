@@ -32,7 +32,7 @@ export class BlogComponent implements OnInit {
       const id = +params['id'];
       this.blogService.getBlogById(id).subscribe((blog) => {
         this.blog = blog;
-        this.editableBlog = { ...blog }; // Create a copy for editing
+        this.editableBlog = { ...blog };
       });
     });
   }
@@ -40,13 +40,13 @@ export class BlogComponent implements OnInit {
   // Enable editing mode
   editBlog(): void {
     this.isEditing = true;
-    this.editableBlog = { ...this.blog }; // Fresh copy for editing
+    this.editableBlog = { ...this.blog };
   }
 
   // Save changes to the blog
   saveChanges(): void {
     this.blogService.updateBlog(this.editableBlog).subscribe((updatedBlog) => {
-      this.blog = updatedBlog; // Update the displayed content with saved data
+      this.blog = updatedBlog;
       this.isEditing = false;
     });
   }

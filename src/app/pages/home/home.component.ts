@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FeaturedArticleComponent} from '../../components/featured-article/featured-article.component';
 import {SideScrollComponent} from '../../components/side-scroll/side-scroll.component';
-import {CarouselComponent} from '../../components/carousel/carousel.component';
+import {ItemGridComponent} from '../../components/carousel/item-grid.component';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import {CarouselComponent} from '../../components/carousel/carousel.component';
   imports: [
     FeaturedArticleComponent,
     SideScrollComponent,
-    CarouselComponent
+    ItemGridComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

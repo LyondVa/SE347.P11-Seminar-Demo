@@ -21,7 +21,7 @@ export class FeaturedArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogService.getAllBlogs().subscribe((blogs) => {
-      this.featuredBlog = blogs.length ? blogs[0] : null; // Assuming the first blog is the featured one
+      this.featuredBlog = blogs.length ? blogs[0] : null;
     });
   }
 }

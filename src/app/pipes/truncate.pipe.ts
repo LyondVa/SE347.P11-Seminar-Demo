@@ -9,7 +9,6 @@ export class TruncatePipe implements PipeTransform {
     if (!value) return '';
     if (value.length <= limit) return value;
 
-    // Truncate at the last space within the limit
     let truncated = value.substring(0, limit);
     let lastSpace = truncated.lastIndexOf(' ');
     if (lastSpace > 0) {
