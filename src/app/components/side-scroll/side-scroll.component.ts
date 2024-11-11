@@ -14,11 +14,13 @@ import {NgForOf} from '@angular/common';
   styleUrls: ['./side-scroll.component.css']
 })
 export class SideScrollComponent implements OnInit {
-  articles:any = [];
+  blogs: any[] = [];
 
   constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.articles = this.blogService.getAllBlogs();
+    this.blogService.getAllBlogs().subscribe((blogs) => {
+      this.blogs = blogs;
+    });
   }
 }

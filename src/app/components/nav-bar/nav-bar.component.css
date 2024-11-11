@@ -20,3 +20,14 @@ nav a {
 nav a:hover {
   color: #ffc107;
 }
+/* Styling for search bar in the navbar */
+.search-container {
+  margin-left: auto;
+}
+
+.search-container input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}

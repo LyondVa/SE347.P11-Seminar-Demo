@@ -1,0 +1,18 @@
+/* Basic styling for the search page */
+.search-page {
+  padding: 2rem;
+}
+
+.blog {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+}
+
+.blog h3 a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.blog h3 a:hover {
+  text-decoration: underline;
+}

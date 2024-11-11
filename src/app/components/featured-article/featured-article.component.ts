@@ -15,11 +15,13 @@ import {NgIf, SlicePipe} from '@angular/common';
   styleUrls: ['./featured-article.component.css']
 })
 export class FeaturedArticleComponent implements OnInit {
-  featuredArticle: any;
+  featuredBlog: any;
 
   constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.featuredArticle = this.blogService.getBlogById(1);
+    this.blogService.getFeaturedBlog().subscribe((blog) => {
+      this.featuredBlog = blog;
+    });
   }
 }

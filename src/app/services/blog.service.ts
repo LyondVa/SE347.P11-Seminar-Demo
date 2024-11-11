@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlogService {
   private blogs = [
@@ -47,13 +48,30 @@ export class BlogService {
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  getAllBlogs() {
-    return this.blogs;
+  // Fetch all blogs
+  getAllBlogs(): Observable<any[]> {
+    return of(this.blogs);
   }
 
-  getBlogById(id: number) {
-    return this.blogs.find(blog => blog.id === id);
+  // Fetch a single blog by ID
+  getBlogById(id: number): Observable<any> {
+    const blog = this.blogs.find((b) => b.id === id);
+    return of(blog);
+  }
+
+  getFeaturedBlog(): Observable<any> {
+    // For this example, we use the first blog as the featured article.
+    return of(this.blogs[0]);
+  }
+
+  // Update an existing blog
+  updateBlog(updatedBlog: any): Observable<any> {
+    const index = this.blogs.findIndex((b) => b.id === updatedBlog.id);
+    if (index !== -1) {
+      this.blogs[index] = updatedBlog;
+    }
+    return of(updatedBlog);
   }
 }

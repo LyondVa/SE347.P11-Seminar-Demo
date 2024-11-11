@@ -1,4 +1,13 @@
 <nav>
   <a routerLink="/">Home</a>
   <a routerLink="/about">About Me</a>
+
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search articles..."
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="onSearch()"
+    />
+  </div>
 </nav>
